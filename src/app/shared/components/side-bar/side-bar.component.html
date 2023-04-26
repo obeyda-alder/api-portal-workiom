@@ -1,0 +1,59 @@
+<div class="flex flex-col items-center w-40 h-full overflow-hidden text-gray-400 bg-gray-900 rounded with-tli">
+
+  <ul class="side-bar-ul flex flex-col items-center w-full mt-3">
+    <li class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
+        [routerLink]="['introduction']"
+        [queryParams]="{appId: id }"
+        [routerLinkActive]="['is-active']"
+        (click)="setStep(1)"
+        >
+        <i class="fab fa-stack-overflow"></i>
+        <span class="p-2">{{ 'introduction' | uppercase }}</span>
+    </li>
+
+    <div *ngIf="!server._authenticated" class="cursre">
+      <li class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
+          *ngFor="let item of custom_nav"
+          [routerLink]="['api-portal/workiom']"
+          [queryParams]="{type: item.title }"
+          [routerLinkActive]="['is-active']"
+          (click)="_section(item)"
+          >
+          <i [class]="item.icon"></i>
+          <span class="p-2">{{ item.title | uppercase }}</span>
+      </li>
+    </div>
+
+
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="step === item.id" (opened)="setStep(item.id)" *ngFor="let item of navBar; let i = index;" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title
+           class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300">
+           <i [class]="item.icon"></i> <span class="p-2">{{ item.name | uppercase }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+          <li
+            *ngFor="let operation of operations; let x = index;"
+            [routerLink]="item.route.param ? [item.route.title, item.route.param] :  [item.route.title]"
+            [queryParams]="{operation: operation }"
+            [style.background-color]="isActive(item, operation, true) ? '#88888888' : 'inherit'"
+            [style.color]="isActive(item, operation, true) ? '#fff' : 'rgb(156 163 175 / 1)'"
+            (click)="selectSection(item, operation)"
+            class="flex item-expansion-panel-header items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300">
+            {{ operation | uppercase }}
+          </li>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <li class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
+        [routerLink]="['errors-page']"
+        [queryParams]="{appId: id }"
+        [routerLinkActive]="['is-active']"
+        (click)="setStep(1)"
+        >
+        <i class="fa-exclamation-circle fa"></i>
+        <span class="p-2">{{ 'errors message' | uppercase }}</span>
+    </li>
+  </ul>
+</div>

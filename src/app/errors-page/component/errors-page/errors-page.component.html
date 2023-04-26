@@ -1,0 +1,96 @@
+<div class="content">
+  <h1 class="title mb-3">ERRORS</h1>
+
+  <div class="mb-3">
+    The <span class="content-span">{{ app.name ?? 'TEST' }}</span> API follows HTTP status code semantics. 2xx codes signify success,
+    4xx mostly represent user error, 5xx generally correspond to a server error.
+    The error messages will return a JSON-encoded body that contains error and message fields.
+    Those will provide specific error condition and human-readable message to identify what caused the error.
+  </div>
+
+  <hr />
+  <div class="success_table line-height mb-5">
+    <h1 class="span-color mb-3">Success code</h1>
+
+    <table mat-table [dataSource]="success_table" class="mat-elevation-z8">
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="color_gree" mat-cell *matCellDef="let element"> {{element.code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="gree" mat-cell *matCellDef="let element"> {{element.message}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <tr class="border-un" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="border-un" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <hr />
+  <div class="user_error_table line-height mb-5">
+    <h1 class="span-color mb-3">User error codes</h1>
+
+    <p>
+      These errors generally indicate a problem on the client side.
+      If you are getting one of these, check your code and the request details
+    </p>
+
+    <table mat-table [dataSource]="user_error_table" class="mat-elevation-z8">
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="color_gree" mat-cell *matCellDef="let element"> {{element.code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="gree" mat-cell *matCellDef="let element"> {{element.message}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <tr class="border-un" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="border-un" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <hr />
+  <div class="server_error_table line-height mb-5">
+    <h1 class="span-color mb-3">Server error codes</h1>
+
+    <p>
+      These errors generally represent an error on our side. In the event of a 5xx error code,
+      detailed information about the error will be automatically recorded, and {{ server.CompanyName }} developers will be notified.
+    </p>
+
+    <table mat-table [dataSource]="user_error_table" class="mat-elevation-z8">
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="color_gree" mat-cell *matCellDef="let element"> {{element.code}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="gree" mat-cell *matCellDef="let element"> {{element.message}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <tr class="border-un" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="border-un" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>

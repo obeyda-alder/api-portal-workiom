@@ -1,0 +1,61 @@
+<div class="content">
+  <h1 class="title mb-3" *ngIf="content.name" [innerHtml]="content.name"></h1>
+
+  <div class="title mb-3" *ngIf="content.title" [innerHtml]="content.title"></div>
+
+  <div class="text mb-3" *ngIf="content.text" [innerHtml]="content.text"></div>
+
+  <div class="request_method mb-3" *ngIf="content.method">
+    <span>METHOD : </span> <span class="content-span">{{ content.method }}</span>
+  </div>
+
+  <div class="try" [ngClass]="{'wait': to_try}" *ngIf="section && section.route.operation != 'Fields'">
+    <button
+        class="try-request"
+        mat-raised-button
+        color="primary"
+        (click)="toTry()"
+        [disabled]="to_try">
+      <span class="mx-2">Try</span>
+      <i class="fa fa-circle-o-notch fa-spin fa-spinner-try" *ngIf="to_try"></i>
+    </button>
+
+    <div class="select mt-2" *ngIf="hasSelect">
+
+      <ng-select
+          class="col-md-12"
+          [(ngModel)]="search"
+          (change)="IdSelected($event)">
+          <ng-option *ngFor="let id of _ids" [value]="id" [value]="id">
+             <span class="float-left">{{ id.name }}</span><span class="color_green float-right">{{ id.id }}</span>
+          </ng-option>
+      </ng-select>
+    </div>
+
+    <mat-accordion *ngIf="hasForm" class="d-block mt-3">
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Inputs
+          </mat-panel-title>
+          <mat-panel-description>
+            Click To Show  Inputs
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <form [formGroup]="FormRequest" class="row w-100 my-2 FormRequest">
+            <mat-form-field class="col-md-6" *ngFor="let item of fields">
+              <mat-label>{{ item.field_original_name }}</mat-label>
+              <input matInput formControlName="{{ item.field_id }}">
+            </mat-form-field>
+          </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <pre *ngIf="language && code" class="language-{{ language }}">
+      <h3 class="gree">RESPONSE</h3>
+      <code #codeEle class="language-{{ language }}" [innerHtml]="code"></code>
+    </pre>
+
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+<nav [ngClass]="{'p-4': !server._authenticated}">
+  <div class="container-pro">
+    <div class="content">
+      <img [src]="logo" alt="">
+
+      <ng-select
+        *ngIf="server._authenticated"
+        class="w-25 my-2 mx-4"
+        [(ngModel)]="selected"
+        (change)="selectProject($event)">
+        <ng-option
+          *ngFor="let project of server.Projects; index as i"
+          [value]="project">
+            <i [class]="project.icon" class="mx-2"></i>
+            {{project.name}}
+        </ng-option>
+     </ng-select>
+    </div>
+  </div>
+</nav>

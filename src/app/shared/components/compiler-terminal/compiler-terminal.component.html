@@ -1,0 +1,18 @@
+<div class="content">
+
+  <mat-tab-group (selectedTabChange)="setLang($event)">
+    <mat-tab *ngFor="let lang of server.languagesSupportInTerminal" [label]="lang"></mat-tab>
+  </mat-tab-group>
+
+  <pre *ngIf="language" class="language-{{ languageStyle }}">
+
+    <h3 class="gree" *ngIf="code">EXAMPLE REQUEST</h3>
+    <code #codeEle class="language-{{ languageStyle }}" [innerHtml]="code"></code>
+
+    <hr  *ngIf="responseCode" />
+
+    <h3 class="gree" *ngIf="responseCode">EXAMPLE RESPONSE</h3>
+    <code #codeEle class="language-{{ languageStyle }}" [innerHtml]="responseCode"></code>
+  </pre>
+
+</div>

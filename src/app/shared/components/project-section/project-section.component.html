@@ -1,0 +1,64 @@
+<div class="content">
+
+  <div *ngIf="server.Operations.includes(is_opration_equal); else EmptyOpration">
+    <content-section [content]="ReturnData(is_opration_equal)"></content-section>
+
+    <div class="table_fields" *ngIf="is_opration_equal == 'Fields'">
+
+      <table
+         *ngIf="dataSource.length > 0; else loadSpinner"
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8"
+      >
+        <!-- <ng-container matColumnDef="field_after_translate_name">
+          <th mat-header-cell *matHeaderCellDef>{{ 'FIELD NAME' }}</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="special_name">{{ element.field_after_translate_name }}</span>
+          </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="field_original_name">
+          <th mat-header-cell *matHeaderCellDef>{{ 'FIELD NAME' }}</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="special_name">{{ element.field_original_name }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="field_id">
+          <th mat-header-cell *matHeaderCellDef>{{ 'FIELD ID' }}</th>
+          <td class="color_gree" mat-cell *matCellDef="let element"> {{ element.field_id }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>{{ 'TYPE' }}</th>
+          <td mat-cell *matCellDef="let element"> {{ data_type[element.type]['text'] }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descriotion">
+          <th mat-header-cell *matHeaderCellDef>{{ 'DESCRIPTION' }}</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="desc_type">{{ data_type[element.type]['type'] }}</span>
+            <br />
+            <span [innerHtml]="DescriptionByCoulmnType(element)"></span>
+          </td>
+        </ng-container>
+
+        <tr class="ng_container_coulumn" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="ng_container_coulumn_" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #EmptyOpration>
+    <div class="empty_opration">
+       <span>this operation not provided</span>
+    </div>
+   </ng-template>
+
+  <ng-template #loadSpinner>
+   <div class="load">
+      <mat-spinner></mat-spinner>
+   </div>
+  </ng-template>
+</div>

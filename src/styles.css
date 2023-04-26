@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  font-family: Rubik,Tajawal,sans-serif;
+}
+html, body {
+   height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+::-webkit-scrollbar-thumb {
+  background: #88888888;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~font-awesome/css/font-awesome.css';
+@import '~node_modules/@fortawesome/fontawesome-free/css/all.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism-okaidia";
+pre[class*="language-"],
+code[class*="language-"] {
+  height: 100%;
+}
+div.code-toolbar {
+  height: 100%;
+}
+@media print {
+	pre[class*="language-"],
+	code[class*="language-"] {
+		text-shadow: none;
+	}
+}
+pre[class*="language-"] {
+	margin: unset !important;
+	overflow: auto;
+  border-radius: unset !important;
+}
+.content-span{
+  /* #fdbc0b
+     #ff0071
+     #9635f0
+  */
+  background-color: #ff0071;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.color_gree{
+  color: green;
+}
+.underline{
+  text-decoration: underline;
+  line-height: 2;
+  color: green;
+}
+.mat-mdc-tab-header {
+  position: absolute !important;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.mat-mdc-tab.mdc-tab {
+  height: 30px !important;
+  box-shadow: #fff 0px 25px 20px -20px;
+  /* border: 1px solid #fff !important; */
+  color: #fff;
+}
+.mdc-tab-indicator {
+  color: #fff !important;
+  background: inherit !important;
+}
+.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline,
+.mat-mdc-tab-link:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
+  border-color: #ffffff !important;
+}
+.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label,
+ .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+  color: #ffffff;
+}
+.mat-mdc-tab .mdc-tab__text-label,
+.mat-mdc-tab-link .mdc-tab__text-label {
+  color: #888;
+}
+.mdc-tab-indicator {
+  border-bottom: .5px solid #888;
+}
+div.code-toolbar > .toolbar {
+  z-index: 9999999999;
+  top: 2.5em;
+  right: 1em;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 14px !important;
+  padding: 40px !important;
+}
+code[class*="language-"]{
+  word-wrap: break-word;
+  white-space: break-spaces;
+}
+.mdc-button__label{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

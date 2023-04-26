@@ -1,0 +1,13 @@
+<div class="content">
+
+    <h1 class="title mb-3">{{ section.title | uppercase }}</h1>
+
+    <div class="title mb-3">{{ text1 }}</div>
+
+    <img  *ngIf="section.title == 'Authentication'" class="mb-5 w-50 h-50" src="https://uploads-ssl.webflow.com/608002064c0619d439747417/61e58b9f00d49cbe7427e531_Screen%20Shot%202022-01-17%20at%2018.30.06.png" alt="">
+
+    <img *ngIf="section.title == 'Authentication'"  class="mb-5 w-50 h-50" src="https://uploads-ssl.webflow.com/608002064c0619d439747417/61e58b3f6d717b2cf4340554_Screen%20Shot%202022-01-17%20at%2018.28.46.png" alt="">
+
+    <div class="title mb-3" [innerHtml]="text2"></div>
+
+</div>

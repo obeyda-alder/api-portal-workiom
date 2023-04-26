@@ -1,0 +1,26 @@
+<div class="content row">
+  <h1 class="col-md-12 col-lg-12 col-sm-12">INTRODUCTION</h1>
+  <p class="col-md-12 col-lg-12 col-sm-12">
+    The <span class="content-span">{{ app.name ?? 'TEST' }}</span> API provides an easy way to integrate your <span class="content-span">{{ app.name ?? 'TEST' }}</span> data in {{ server.CompanyName }} with any external system.
+    The API closely follows REST semantics, uses JSON to encode objects,
+    and relies on standard HTTP codes to signal operation outcomes.
+  </p>
+  <p class="col-md-12 col-lg-12 col-sm-12">
+    The API documentation below is specifically generated for your base. We recommend that you use the
+    <a href="https://www.workiom.com/" target="_blank">graphical {{ server.CompanyName }} interface</a>
+    to add a few records of example data for each table.
+    These records will be displayed in the documentation examples generated below.
+  </p>
+  <p class="col-md-12 col-lg-12 col-sm-12">
+    To view documentation for all available endpoints,
+    as well as documentation that has not been generated specific to your base, please visit <a href="https://help.workiom.com/article/workiom-api-guide" target="_blank">here.</a>
+  </p>
+  <p class="col-md-12 col-lg-12 col-sm-12" *ngIf="app.id">
+    The ID of this base is <span class="content-span">{{ app.id }}</span>.
+  </p>
+  <p class="col-md-12 col-lg-12 col-sm-12">
+    <b>Please note:</b>
+    if you make changes to a field (column) name or type, the API interface for those fields will change correspondingly.
+    Therefore, please make sure to update your API implementation accordingly whenever you make changes to your {{ server.CompanyName }} schema from the graphical interface.
+  </p>
+</div>
