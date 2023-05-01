@@ -93,9 +93,9 @@ curl --location --request ${$data['method']} '${this.server.baseUrl}${$data['url
 --data '${body}'`;
       }else if(lang == "PHP-cURL"){
         this.code = `
-<?php
-$curl = curl_init();
-curl_setopt_array($curl, array(
+  < ?php
+  $curl = curl_init();
+  curl_setopt_array($curl, array(
   CURLOPT_URL => '${this.server.baseUrl}${$data['url']}',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
@@ -110,10 +110,10 @@ curl_setopt_array($curl, array(
     'X-Api-Key: ${this.server.apiKey}',
     'Content-Type: application/json'
   ),
-));
-$response = curl_exec($curl);
-curl_close($curl);
-echo $response;`
+  ));
+  $response = curl_exec($curl);
+  curl_close($curl);
+  echo $response;`
       }else if(lang == "NodeJs"){
         this.code = `
 var request = require('request');
